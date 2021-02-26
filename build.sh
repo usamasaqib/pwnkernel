@@ -28,15 +28,6 @@ echo "[+] Checking / installing dependencies..."
 apt-get -q update
 apt-get -q install -y bison flex libelf-dev cpio build-essential libssl-dev qemu-system-x86 bc
 
-#
-# Linker
-# lld causes problems because init section is too big.
-# gold is unsupported
-# so we make sure that ldd is used
-LD_PATH=$(which ld)
-LDD_PATH=$(which ldd)
-rm $LD_PATH
-ln -s $LDD_PATH $LD_PATH
 
 #
 # linux kernel
