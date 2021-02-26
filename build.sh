@@ -48,8 +48,7 @@ then
 		echo "$p" >> linux-$KERNEL_VERSION/.config
 	done < $BASE_PATH/additional.config
 fi
-exit 1
-read
+
 make -C linux-$KERNEL_VERSION -j16 bzImage
 
 #
