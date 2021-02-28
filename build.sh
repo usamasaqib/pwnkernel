@@ -10,6 +10,7 @@ fi
 
 VERSION=$(echo $KERNEL_VERSION | cut -d '.' -f 1)
 BASE_PATH=$(pwd)
+BUILD_PATH=$(pwd)/build
 
 #
 # make build dir
@@ -71,17 +72,17 @@ make -C busybox-$BUSYBOX_VERSION install
 #
 
 echo "[+] Building filesystem..."
-cd fs
+cd $BASE_PATH/fs
 mkdir -p bin sbin etc proc sys usr/bin usr/sbin root home/ctf
 cd ..
-cp -a busybox-$BUSYBOX_VERSION/_install/* fs
+cp -a $BUILD_PATH/busybox-$BUSYBOX_VERSION/_install/* fs
 
 #
 # modules
 #
 
-echo "[+] Building modules..."
-cd $BASE_PATH/src
-make
-cd $BASE_PATH
-cp src/*.ko fs/
+#echo "[+] Building modules..."
+#cd $BASE_PATH/src
+#make
+#cd $BASE_PATH
+#cp src/*.ko fs/
