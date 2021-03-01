@@ -81,8 +81,8 @@ cp -a $BUILD_PATH/busybox-$BUSYBOX_VERSION/_install/* fs
 # modules
 #
 
-#echo "[+] Building modules..."
-#cd $BASE_PATH/src
-#make
-#cd $BASE_PATH
-#cp src/*.ko fs/
+echo "[+] Building modules..."
+cd $BASE_PATH/src
+make
+cd $BASE_PATH
+cp src/*.ko fs/
