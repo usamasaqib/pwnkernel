@@ -1,7 +1,13 @@
 #!/bin/bash -e
 
+if [[ -z $KERNEL_VERSION ]]
+then
+        KERNEL_VERSION='5.4'
+fi
+
 BASE_PATH=$(pwd)
 BUILD_DIR=$(pwd)/build
+
 
 echo "[+] Building kernel..."
 make -C $BUILD_DIR/linux-$KERNEL_VERSION defconfig
